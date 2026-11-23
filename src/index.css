@@ -1,0 +1,435 @@
+
+/* ESTILOS GENERALES */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* ENCABEZADO */
+
+.header {
+  background-color: #1e293b;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.header h1 {
+  color: #38bdf8;
+  font-size: 32px;
+  margin: 0 0 15px;
+}
+
+.header p {
+  color: #e2e8f0;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+  width: 90%;
+  max-width: 950px;
+  margin: 35px auto;
+}
+
+.panel {
+  background-color: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.panel h2 {
+  margin-top: 10px;
+}
+
+/* BUSCADOR */
+
+.buscador {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.buscador label {
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.buscador input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  background-color: #334155;
+  color: #f8fafc;
+  font-size: 15px;
+}
+
+.buscador input::placeholder {
+  color: #cbd5e1;
+}
+
+.buscador input:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* VALIDACIONES ZOD */
+
+.mensaje-error {
+  color: #fca5a5;
+  background-color: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.buscador input[aria-invalid="true"] {
+  border-color: #ef4444;
+}
+
+.buscador input[aria-invalid="true"]:focus-visible {
+  outline-color: #ef4444;
+}
+
+/* FILTRO FAVORITOS */
+
+.filtro-favoritos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  color: #e2e8f0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filtro-favoritos input {
+  width: 18px;
+  height: 18px;
+  accent-color: #38bdf8;
+  cursor: pointer;
+}
+
+/* BOTÓN ACTUALIZAR */
+
+.boton-consulta {
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  margin: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.boton-consulta:hover:not(:disabled) {
+  background-color: #0369a1;
+}
+
+.boton-consulta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton-consulta:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
+
+/* LISTA DE CRIPTOMONEDAS */
+
+.lista-criptomonedas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+  background: linear-gradient(145deg, #334155, #1e293b);
+  border: 1px solid #475569;
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.tarjeta-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.tarjeta-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cripto-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.bitcoin .cripto-icono {
+  background-color: #f7931a;
+}
+
+.ethereum .cripto-icono {
+  background-color: #627eea;
+}
+
+.solana .cripto-icono {
+  background: linear-gradient(135deg, #9945ff, #14f195);
+}
+
+.tarjeta h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.simbolo,
+.precio-etiqueta {
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.precio {
+  color: #38bdf8;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: bold;
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ESTRELLAS FAVORITOS */
+
+.boton-favorito {
+  background: transparent;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 27px;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton-favorito:hover {
+  color: #facc15;
+  border-color: #facc15;
+  transform: scale(1.08);
+}
+
+.boton-favorito.activo {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.1);
+  border-color: #facc15;
+}
+
+.boton-favorito:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+/* PIE DE PÁGINA */
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: #cbd5e1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .lista-criptomonedas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor {
+    width: 94%;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .lista-criptomonedas {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta {
+    padding: 22px;
+  }
+}
+
+
+/* ENLACES DE NAVEGACIÓN */
+
+.enlace-detalle {
+  display: inline-block;
+  margin-top: 20px;
+  color: #38bdf8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.enlace-detalle:hover {
+  text-decoration: underline;
+}
+
+.enlace-volver {
+  display: inline-block;
+  margin-top: 24px;
+  background-color: #0284c7;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.enlace-volver:hover {
+  background-color: #0369a1;
+}
+
+.enlace-detalle:focus-visible,
+.enlace-volver:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 4px;
+}
+
+/* PÁGINA DE DETALLES */
+
+.detalle-panel {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 35px;
+}
+
+.detalle-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detalle-encabezado h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.detalle-encabezado p {
+  color: #cbd5e1;
+  margin-bottom: 0;
+}
+
+.detalle-precio {
+  margin-top: 35px;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: #334155;
+}
+
+.detalle-precio p {
+  color: #cbd5e1;
+}
+
+.detalle-precio h2 {
+  color: #38bdf8;
+  font-size: clamp(26px, 5vw, 38px);
+  overflow-wrap: anywhere;
+}
+
+.detalle-fuente {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* PÁGINA 404 */
+
+.pagina-error {
+  text-align: center;
+  padding: 60px 25px;
+}
+
+.pagina-error h1 {
+  color: #38bdf8;
+  font-size: 80px;
+  margin: 0;
+}
+
+.pagina-error p {
+  color: #cbd5e1;
+}
+
+
+/* SELECTOR DE CRIPTOMONEDAS */
+
+.buscador select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  background-color: #334155;
+  color: #f8fafc;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buscador select:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.buscador select[aria-invalid="true"] {
+  border-color: #ef4444;
+}
+
+.buscador select[aria-invalid="true"]:focus-visible {
+  outline-color: #ef4444;
+}
