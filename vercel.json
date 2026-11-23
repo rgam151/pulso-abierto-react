@@ -2,12 +2,11 @@
 {
   "rewrites": [
     {
-      "source": "/api/coingecko/:path*",
-      "destination": "https://api.coingecko.com/api/v3/:path*"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
 }
+
+
+

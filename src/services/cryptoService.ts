@@ -1,6 +1,5 @@
 
-const API_URL =
-  '/api/coingecko/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd';
+const API_URL = '/api/precios';
 
 export interface CryptoPrices {
   bitcoin: { usd: number };
